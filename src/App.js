@@ -1,11 +1,16 @@
+import { Route, Switch } from 'react-router';
 import './App.css';
+import Create from './pages/CreatePost';
+import Edit from './pages/EditPost';
 import Home from './pages/Home';
 
 function App() {
 	return (
-		<div className="App">
-			<Home />
-		</div>
+		<Switch>
+			<Route exact path="/" component={Home}/>
+			<Route path="/edit" component={Edit}/>
+			<Route path="/create" component={Create}/>
+		</Switch>
 	);
 }
 

@@ -4,7 +4,7 @@ function Header(props) {
     const { title } = props;
     return (
         <div>
-            <header className="flex justify-center">
+            <header className="flex justify-center mt-10">
                 <h1>{title}</h1>
             </header>
         </div>

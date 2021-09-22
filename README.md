@@ -1,6 +1,6 @@
-# Get Started
+# Get Started :star:
 
-## ติดตั้ง package บน root folder
+## ติดตั้ง package บน root folder :file_folder:
 
 * ### Tailwind CSS
 ```bash
@@ -23,7 +23,7 @@ npm install dateformat
 ```bash
 npm install react-router-dom
 ```
-## ติดตั้ง package ภายใน server folder
+## ติดตั้ง package ภายใน server folder :file_folder:
 * ### cors
 ```bash
 npm install cors
@@ -40,3 +40,18 @@ npm install mysql
 ```bash
 npm install nodemon
 ```
+## import database ชื่อ db_tour :file_folder:
+> นำเข้าไฟล์ db_tour.sql บน phpMyAdmin
+
+## Run หน้าเว็บ :computer:
+```bash
+npm start
+```
+และสามารถปิดได้ด้วย Ctrl+C
+
+## Run Server ภายใน folder server :computer:
+```bash
+cd server
+npm run dev
+```
+และสามารถปิดได้ด้วย Ctrl+C

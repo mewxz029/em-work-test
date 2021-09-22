@@ -1,4 +1,7 @@
 # Get Started :star:
+## Required
+> * Node.js
+
 
 ## ติดตั้ง package บน root folder :file_folder:
 

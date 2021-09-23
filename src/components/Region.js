@@ -6,8 +6,8 @@ function Region(props) {
     const [attraction, setAttraction] = useState([]);
     const { title } = props
 
-    const getAttraction = () => {
-        axios.get("http://localhost:3001/api/attraction").then((res) => {
+    const getAttraction = async () => {
+        await axios.get("http://localhost:3001/api/attraction").then((res) => {
             setAttraction(res.data)
         })
     }

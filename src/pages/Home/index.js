@@ -8,8 +8,8 @@ function Home() {
     const [region, setRegion] = useState([]);
 
 
-    const getQuery = () => {
-        axios.get("http://localhost:3001/api/region").then((response) => {
+    const getQuery = async () => {
+        await axios.get("http://localhost:3001/api/region").then((response) => {
             setRegion(response.data)
         });
     };

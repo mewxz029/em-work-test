@@ -18,22 +18,32 @@ function Edit() {
     const formRef = useRef();
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/province").then(res => {
-            setOptionProvince(res.data)
-        })
+        const getProvince = async () => { 
+            await axios.get("http://localhost:3001/api/province").then(res => {
+                setOptionProvince(res.data)
+            })
+        }
 
-        axios.get("http://localhost:3001/api/attraction_type").then(res => {
-            setOptionType(res.data)
-        })
+        const getType = async () => {
+            await axios.get("http://localhost:3001/api/attraction_type").then(res => {
+                setOptionType(res.data)
+            })
+        }
 
-        axios.get(`http://localhost:3001/api/attraction/${id}`).then((res) => {
+        const getData = async () => {
+            await axios.get(`http://localhost:3001/api/attraction/${id}`).then((res) => {
             // console.log(res.data[0].Name)
-            setName(res.data[0].Name)
-            setProvinceID(res.data[0].ProvinceID)
-            setAttractionTypeID(res.data[0].AttractionTypeID)
-            setImageURL(res.data[0].ImageURL)
-            setDescription(res.data[0].Description)
-        })
+                setName(res.data[0].Name)
+                setProvinceID(res.data[0].ProvinceID)
+                setAttractionTypeID(res.data[0].AttractionTypeID)
+                setImageURL(res.data[0].ImageURL)
+                setDescription(res.data[0].Description)
+            })
+        }
+        
+        getProvince();
+        getType();
+        getData();
     }, [id])
 
     const onChangeName = (e) => {
@@ -67,15 +77,15 @@ function Edit() {
         Modified: dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss")
     }
     
-    const updateData = () => {
-        axios.put("http://localhost:3001/api/update", data).then((res) => {
+    const updateData = async () => {
+        await axios.put("http://localhost:3001/api/update", data).then((res) => {
             history.push("/")
             console.log("Update Successful")
         })
     }
     
-    const deleteData = () => {
-        axios.delete(`http://localhost:3001/api/delete/${id}`).then((res) => {
+    const deleteData = async () => {
+        await axios.delete(`http://localhost:3001/api/delete/${id}`).then((res) => {
             history.push("/")
             console.log("Delete Successful")
         })

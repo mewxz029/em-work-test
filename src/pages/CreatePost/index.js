@@ -9,13 +9,13 @@ function Create() {
     const [optionType, setOptionType] = useState([]);
     const history = useHistory();
 
-    const getProvince = () => {
-        axios.get("http://localhost:3001/api/province").then(res => {
+    const getProvince = async () => {
+        await axios.get("http://localhost:3001/api/province").then(res => {
             setOptionProvince(res.data)
         })
     }
-    const getType = () => {
-        axios.get("http://localhost:3001/api/attraction_type").then(res => {
+    const getType = async () => {
+        await axios.get("http://localhost:3001/api/attraction_type").then(res => {
             setOptionType(res.data)
         })
     }
@@ -37,7 +37,7 @@ function Create() {
         return now
     }
 
-    const addData = () => {
+    const addData = async () => {
         const data = {
             Name: Name,
             ProvinceID: ProvinceID,
@@ -48,7 +48,7 @@ function Create() {
             Modified: formatDate()
         }
 
-        axios.post("http://localhost:3001/api/create", data).then(() => {
+        await axios.post("http://localhost:3001/api/create", data).then(() => {
             console.log("Add Successful")
             history.push("/")
         })
